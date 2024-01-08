@@ -20,7 +20,6 @@ for i in range(len(ar)):
   term = (term1 - term2)**2
   s = s + term
 f = s 
-print(f)
 
 set_of_symbols = f.free_symbols
 list_of_symbols = list(set_of_symbols)
@@ -39,8 +38,8 @@ def gradient_descent(vect, num_steps, step_size):
     newGradient = gradient
     for j in range(len(params)):
       newGradient = newGradient.subs(params[j], vect[j])
-    if (i == 1):
-      print(newGradient)
+    #if (i == 1):
+      #print(newGradient)
     vect = vect - step_size * newGradient
   return vect
 
