@@ -5,13 +5,13 @@
     "Natural gas": 116.65,
     "Fuel oil or kerosene": 161.35,
     "Propane": 138.63,
-    "Wood": 2.5*116.65
+    "Wood": 291.625
   },
   "Normal hours per day":
   {
     "Space heating": 8,
     "Water heating": 4.
-    "Air conditioning": (35/60 * 14),
+    "Air conditioning": 8.16666666667,
     "Refrigerators": 8,
     "Other": 8
   }
