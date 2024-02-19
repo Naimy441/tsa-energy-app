@@ -20,8 +20,8 @@ Conversion_Factors = [ ["Electricity", ELECTRICITY_CONVERSION_FACTOR], ["Natural
 
 SH_HOURS_PER_DAY = 8
 WH_HOURS_PER_DAY = 4
-AC_HOURS_PER_DAY = 35/60 * 14
-REFRIGIERATORS_HOURS_PER_DAY = 8
+AC_HOURS_PER_DAY = (35/60 * 14)
+REFRIGERATORS_HOURS_PER_DAY = 8
 OTHER_CONSUMPTION_HOURS_PER_DAY = 8
 
 Consumption_Hours = [SH_HOURS_PER_DAY, WH_HOURS_PER_DAY, AC_HOURS_PER_DAY, REFRIGERATORS_HOURS_PER_DAY, OTHER_CONSUMPTION_HOURS_PER_DAY] 
@@ -48,12 +48,12 @@ for fuel in arrayOfFuels:
   fuel[1] = input("Type of Fuel for " + fuel[0] + ": ") 
   fuel[2] = int(input("Number of Hours per Day: "))
 
-for i in range(statsArray):
-  
+for i in range(len(statsArray)):
+
   #Change below
-  average_energy_site_consumption = 1
+  average_energy_site_consumption = TOTAL_CONSUMPTION_PER_HOUSE
   #Change above
-  
+
   factor = average_energy_site_consumption/TOTAL_CONSUMPTION_PER_HOUSE
   coefficient = coefficient*factor
 
@@ -65,13 +65,10 @@ for i in range(len(arrayOfFuels)):
     if (fuel[1] == factor[0]):
       summand = summand*factor[1]
   var = var.subs(symbolsOfFuels[i], summand)
-    
-  
 
- 
-  
-
-
+print(var)
+print(coefficient)
+print(var/coefficient)
 
   
   
