@@ -1,0 +1,18 @@
+{
+"Carbon constants":
+  {
+    "Electricity": 379.63,
+    "Natural gas": 116.65,
+    "Fuel oil or kerosene": 161.35,
+    "Propane": 138.63,
+    "Wood": 2.5*116.65
+  },
+  "Normal hours per day":
+  {
+    "Space heating": 8,
+    "Water heating": 4.
+    "Air conditioning": (35/60 * 14),
+    "Refrigerators": 8,
+    "Other": 8
+  }
+}
