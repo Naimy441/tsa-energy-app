@@ -17,5 +17,15 @@
     "Air conditioning": ["", 1],
     "Refrigerators": ["", 1],
     "Other": ["", 1]
+  },
+
+  "Coefficients":
+  {
+    "coefficient": 1,
+    "sh_consumption": 1,
+    "wh_consumption": 1,
+    "ac_consumption": 1,
+    "refrigerators_consumption": 1,
+    "other_consumption": 1
   }
 }
