@@ -14,9 +14,7 @@ NATURAL_GAS_CONVERSION_FACTOR = 116.65
 FUEL_OIL_OR_KEROSENE_CONVERSION_FACTOR = 161.35
 PROPANE_CONVERSION_FACTOR = 138.63
 WOOD_CONVERSION_FACTOR = 2.5*116.65
-SOME_OTHER_FUEL_CONVERSION_FACTOR = 116.65
-
-Conversion_Factors = [ ["Electricity", ELECTRICITY_CONVERSION_FACTOR], ["Natural gas", NATURAL_GAS_CONVERSION_FACTOR], ["Fuel oil or kerosone", FUEL_OIL_OR_KEROSENE_CONVERSION_FACTOR], ["Propane", PROPANE_CONVERSION_FACTOR], ["Wood", WOOD_CONVERSION_FACTOR], ["Some other fuel", SOME_OTHER_FUEL_CONVERSION_FACTOR]]
+Conversion_Factors = [ ["Electricity", ELECTRICITY_CONVERSION_FACTOR], ["Natural gas", NATURAL_GAS_CONVERSION_FACTOR], ["Fuel oil or kerosone", FUEL_OIL_OR_KEROSENE_CONVERSION_FACTOR], ["Propane", PROPANE_CONVERSION_FACTOR], ["Wood", WOOD_CONVERSION_FACTOR]]
 
 SH_HOURS_PER_DAY = 8
 WH_HOURS_PER_DAY = 4
@@ -25,6 +23,10 @@ REFRIGERATORS_HOURS_PER_DAY = 8
 OTHER_CONSUMPTION_HOURS_PER_DAY = 8
 
 Consumption_Hours = [SH_HOURS_PER_DAY, WH_HOURS_PER_DAY, AC_HOURS_PER_DAY, REFRIGERATORS_HOURS_PER_DAY, OTHER_CONSUMPTION_HOURS_PER_DAY] 
+
+#DEFINED THE DATA SET HERE
+EnergyData = pd.read_csv("ce3.1 (1).xlsx - EnergyData (1).csv")
+
 
 housing_unit_type = input("Housing Unit Type: ")
 ownership = input("Ownership: ")
@@ -51,7 +53,9 @@ for fuel in arrayOfFuels:
 for i in range(len(statsArray)):
 
   #Change below
-  average_energy_site_consumption = TOTAL_CONSUMPTION_PER_HOUSE
+  for (j in EnergyData.index):
+    if (EnergyData.loc[j, "Category"] == statsArray[i][1]):
+      average_energy_site_consumption = EnergyData.loc[j, "Total"]
   #Change above
 
   factor = average_energy_site_consumption/TOTAL_CONSUMPTION_PER_HOUSE
@@ -59,7 +63,11 @@ for i in range(len(statsArray)):
 
 for i in range(len(arrayOfFuels)):
   fuel = arrayOfFuels[i]
-  average_energy_site_consumption = 1
+
+  for (j in EnergyData.index):
+    if (EnergyData.loc[j, "Category"] == fuel[1]):
+      average_energy_site_consumption = EnergyData.loc[j, "Total"]
+
   summand = (average_energy_site_consumption/(Consumption_Hours[i]))
   for factor in Conversion_Factors:
     if (fuel[1] == factor[0]):
