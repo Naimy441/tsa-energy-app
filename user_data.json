@@ -1,1 +1,21 @@
-{}
+{
+  "Statistics":
+  {
+    "Housing unit type": "",
+    "Ownership of housing unit": "",
+    "Year of construction": "",
+    "Total square footage": "",
+    "Number of household members": "",
+    "2020 annual household income": "",
+    "Payment method for energy bills": ""
+  },
+
+  "Consumption information":
+  {
+    "Space heating": ["", 1],
+    "Water heating": ["", 1],
+    "Air conditioning": ["", 1],
+    "Refrigerators": ["", 1],
+    "Other": ["", 1]
+  }
+}
