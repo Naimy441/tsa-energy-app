@@ -51,33 +51,30 @@ for fuel in arrayOfFuels:
   fuel[2] = int(input("Number of Hours per Day: "))
 
 for i in range(len(statsArray)):
-
-  #Change below
-  for (j in EnergyData.index):
+  for j in EnergyData.index:
     if (EnergyData.loc[j, "Category"] == statsArray[i][1]):
-      average_energy_site_consumption = EnergyData.loc[j, "Total"]
-  #Change above
+      average_energy_site_consumption = float(EnergyData.loc[j, "Total"])
 
+  #print(statsArray[i][1] + ": " + str(average_energy_site_consumption))
   factor = average_energy_site_consumption/TOTAL_CONSUMPTION_PER_HOUSE
   coefficient = coefficient*factor
 
 for i in range(len(arrayOfFuels)):
   fuel = arrayOfFuels[i]
-
-  for (j in EnergyData.index):
+  #print(fuel[1])
+  for j in EnergyData.index:
+    #print(EnergyData.loc[j, "Category"])
     if (EnergyData.loc[j, "Category"] == fuel[1]):
-      average_energy_site_consumption = EnergyData.loc[j, "Total"]
-
-  summand = (average_energy_site_consumption/(Consumption_Hours[i]))
+      average_energy_fuel_consumption = float(EnergyData.loc[j, fuel[0]])
+      #print(fuel[1] + ": " + str(average_energy_fuel_consumption))
+  summand = (average_energy_fuel_consumption/(Consumption_Hours[i]))
   for factor in Conversion_Factors:
     if (fuel[1] == factor[0]):
       summand = summand*factor[1]
-  var = var.subs(symbolsOfFuels[i], summand)
-
+    var = var.subs(symbolsOfFuels[i], summand)
 print(var)
 print(coefficient)
 print(var/coefficient)
-
   
   
   
