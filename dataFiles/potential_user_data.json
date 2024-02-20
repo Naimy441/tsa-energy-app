@@ -20,4 +20,13 @@
   },
 
   "CO2 Function": "1"
+
+  "Reduction information":
+  {
+    "Variables to reduce": [["Space heating", 1, 9], ["Water heating", 1, 9]],
+    "isGradual": false,
+    "Target reduction": 20
+  }
+
+  
 }
