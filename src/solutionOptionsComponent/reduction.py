@@ -55,7 +55,9 @@ for index in changeIndexList:
 
 functionToOptimize = (func - func0)**2 + dist
 
-print(functionToOptimize)
+#print(functionToOptimize)
+
+
     
     
   
