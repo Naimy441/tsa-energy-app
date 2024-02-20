@@ -2,8 +2,9 @@ import json
 import sympy as *
 
 
-def evaluateEmissions(json_file_name, time_in_months):
 
+def evaluateEmissions(json_file_name, time_in_months):
+  sh_consumption, sh_time, wh_consumption, wh_time, ac_consumption, ac_time, refrigerators_consumption, refrigerators_time, other_consumption, other_time= symbols("sh_consumption sh_time wh_consumption wh_time ac_consumption ac_time refrigerators_consumption refrigerators_time other_consumption other_time")
   with open(json_file_name, "r") as user_data:
       jsonUserData = json.load(user_data)
 
