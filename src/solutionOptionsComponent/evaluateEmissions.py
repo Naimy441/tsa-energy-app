@@ -12,5 +12,5 @@ def evaluateEmissions(json_file_name, time_in_months):
   func = func.subs(refrigerators_time, jsonUserData["Consumption information"]["Refrigerators"][1])
   func = func.subs(other_time, jsonUserData["Consumption information"]["Other"][1])
 
-  return func*(time_in_months)/12
+  return float(func)*(time_in_months)/12
   
