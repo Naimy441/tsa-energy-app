@@ -2,15 +2,15 @@ import sympy as *
 import json
 import determineFunction as *
 
-with open ("dataFiles/current_user_data.json", "r") as file:
-    jsonData1 = json.load(file)
+#with open ("dataFiles/current_user_data.json", "r") as file:
+#    jsonData1 = json.load(file)
 
-with open("dataFiles/potential_user_data.json", "r") as file2:
-    jsonData2 = json.load(file2)
-    jsonData2["Statistics"]= jsonData1["Statistics"]
-    jsonData2["Consumption information"] = jsonData1["Consumption information"]
-    jsonData2["CO2 Function"] = jsonData1["CO2 Function"]
-    newData  = json.dumps(jsonData2, indent = 4)
+#with open("dataFiles/potential_user_data.json", "r") as file2:
+#    jsonData2 = json.load(file2)
+#    jsonData2["Statistics"]= jsonData1["Statistics"]
+#    jsonData2["Consumption information"] = jsonData1["Consumption information"]
+#    jsonData2["CO2 Function"] = jsonData1["CO2 Function"]
+#    newData  = json.dumps(jsonData2, indent = 4)
 
 determineFunction("dataFiles/potential_user_data.json")
 
