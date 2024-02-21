@@ -1,22 +1,22 @@
 {
   "Statistics":
   {
-    "Housing unit type": "",
-    "Ownership of housing unit": "",
-    "Year of construction": "",
-    "Total square footage": "",
-    "Number of household members": "",
-    "2020 annual household income": "",
-    "Payment method for energy bills": ""
+    "Housing unit type": "Single-family detached",
+    "Ownership of housing unit": "Owned",
+    "Year of construction": "Before 1950",
+    "Total square footage": "Less than 1,000",
+    "Number of household members": "1 member",
+    "2020 annual household income": "Less than $5,000",
+    "Payment method for energy bills": "All paid by household"
   },
 
   "Consumption information":
   {
-    "Space heating": ["", 1],
-    "Water heating": ["", 1],
-    "Air conditioning": ["", 1],
-    "Refrigerators": ["", 1],
-    "Other": ["", 1]
+    "Space heating": ["Natural gas", 1],
+    "Water heating": ["Natural gas", 1],
+    "Air conditioning": ["Natural gas", 1],
+    "Refrigerators": ["Natural gas", 1],
+    "Other": ["Natural gas", 1]
   },
 
   "CO2 Function": "1"
