@@ -6,6 +6,7 @@ import json
 import sys
 
 def determineFunction(jsonFileName):
+  jsonFileName = jsonFileName
   with open(jsonFileName, "r") as user_data:
     jsonUserData = json.load(user_data)
   with open("dataFiles/constants.json", "r") as constants:
@@ -29,8 +30,7 @@ def determineFunction(jsonFileName):
   Consumption_Hours = [SH_HOURS_PER_DAY, WH_HOURS_PER_DAY, AC_HOURS_PER_DAY, REFRIGERATORS_HOURS_PER_DAY, OTHER_CONSUMPTION_HOURS_PER_DAY] 
 
   #DEFINED THE DATA SET HERE
-  EnergyData = pd.read_csv("ce3.1 (1).xlsx - EnergyData (1).csv")
-
+  EnergyData = pd.read_csv(r"C:\Users\masia\OneDrive\Documents\tsa-energy-app-main\tsa-energy-app-main\src\solutionOptionsComponent\ce3.1 (1).xlsx - EnergyData (1).csv")
 
   housing_unit_type = jsonUserData["Statistics"]["Housing unit type"]
   ownership = jsonUserData["Statistics"]["Ownership of housing unit"]
