@@ -1,5 +1,5 @@
 import json
-import sympy as *
+from sympy import *
 
 
 
@@ -9,8 +9,8 @@ def evaluateEmissions(json_file_name, time_in_months):
       jsonUserData = json.load(user_data)
 
   func = sympify(jsonUserData["CO2 Function"])
-  func = func.subs(sh_time, jsonUserData["Consumption information"]["Space Heating"][1])
-  func = func.subs(wh_time, jsonUserData["Consumption information"]["Water Heating"][1])
+  func = func.subs(sh_time, jsonUserData["Consumption information"]["Space heating"][1])
+  func = func.subs(wh_time, jsonUserData["Consumption information"]["Water heating"][1])
   func = func.subs(ac_time, jsonUserData["Consumption information"]["Air conditioning"][1])
   func = func.subs(refrigerators_time, jsonUserData["Consumption information"]["Refrigerators"][1])
   func = func.subs(other_time, jsonUserData["Consumption information"]["Other"][1])
