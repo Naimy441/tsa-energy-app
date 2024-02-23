@@ -19,3 +19,14 @@ list = []
 for (t in range(60)):
   list.append([t, evaluateEmissions("dataFiles/current_user_data.json", 12)])
 
+with open("chart_data.json", "r") as user_data:
+    jsonUserData = json.load(user_data)
+
+jsonUserData["chartList"]  = list
+
+newData  = json.dumps(jsonUserData, indent = 4)
+
+with open("chart_data.json", "w") as file2:
+    file2.write(newData)
+
+
