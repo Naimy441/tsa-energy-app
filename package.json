@@ -2,7 +2,7 @@
   "name": "tsa-energy-app",
   "version": "1.0.0",
   "description": "By Abdullah, Landon, Kaamil, Krish, and Murtaza",
-  "main": "tsa-energy-app/src/js/main.js",
+  "main": "src/js/main.js",
   "scripts": {
     "start": "electron ."
   },

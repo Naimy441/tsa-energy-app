@@ -29,5 +29,6 @@
             1
         ]
     },
-    "CO2 Function": "0.930612244897579*ac_time + 2.7875*other_time + 0.375*refrigerators_time + 5.8375*sh_time + 4.2*wh_time"
+    "CO2 Function": "0.930612244897579*ac_time + 2.7875*other_time + 0.375*refrigerators_time + 5.8375*sh_time + 4.2*wh_time",
+    "chartList": []
 }

@@ -4,6 +4,8 @@ path = require('path')
 fs = require('fs')
 console = require('console')
 
+userDataFile = path.join(__dirname, '../', '../', 'dataFiles', 'current_user_data.json')
+
 const createWindow = () => {
     const win = new BrowserWindow({
         fullscreen: true,
@@ -33,7 +35,6 @@ function loadHTML(event, name) {
 }
 
 function loadUserData(event) {
-    userDataFile = path.join(__dirname, '../', '../', 'user_data.json')
     rawData = fs.readFileSync(userDataFile)
     userData = JSON.parse(rawData)
     event.returnValue = userData
@@ -44,7 +45,6 @@ function print(event, message) {
 }
 
 function saveUserData(event, jsonData) {
-    userDataFile = path.join(__dirname, '../', '../', 'user_data.json')
     fs.writeFileSync(userDataFile, jsonData)
 }
 
@@ -53,12 +53,11 @@ function saveUserData(event, jsonData) {
 // }
 
 function getPythonData(event, filename, request, jsonData) {
-    let pyshell = new PythonShell(path.join(__dirname, '../', 'algorithms/') + filename + '.py', {
+    let pyshell = new PythonShell(path.join(__dirname, '../', 'solutionsOptionComponent/') + filename + '.py', {
         mode: 'json',
         args: [jsonData]
     })
     pyshell.on('message', function(message) {
-        userDataFile = path.join(__dirname, '../', '../', 'user_data.json')
         rawData = fs.readFileSync(userDataFile)
         userData = JSON.parse(rawData)
         userData['ipcData'] = message[request]

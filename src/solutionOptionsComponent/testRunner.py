@@ -13,20 +13,22 @@ import os
 
 sh_consumption, sh_time, wh_consumption, wh_time, ac_consumption, ac_time, refrigerators_consumption, refrigerators_time, other_consumption, other_time = symbols("sh_consumption sh_time wh_consumption wh_time ac_consumption ac_time refrigerators_consumption refrigerators_time other_consumption other_time")
 
-determineFunction("dataFiles/current_user_data.json")
+userDataFilePath = "dataFiles/current_user_data.json"
 
-list = [] 
+determineFunction(userDataFilePath)
+
+arr  = [] 
 for t in range(60):
-  list.append([t, evaluateEmissions("dataFiles/current_user_data.json", t)])
+  arr.append([t, evaluateEmissions(userDataFilePath, t)])
 
-with open("chart_data.json", "r") as user_data:
+with open(userDataFilePath, "r") as user_data:
     jsonUserData = json.load(user_data)
 
-jsonUserData["chartList"]  = list
+jsonUserData["chartList"] = arr
 
 newData  = json.dumps(jsonUserData, indent = 4)
 
-with open("chart_data.json", "w") as file2:
+with open(userDataFilePath, "w") as file2:
     file2.write(newData)
 
 
