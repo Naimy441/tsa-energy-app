@@ -16,7 +16,7 @@ sh_consumption, sh_time, wh_consumption, wh_time, ac_consumption, ac_time, refri
 determineFunction("dataFiles/current_user_data.json")
 
 list = [] 
-for (t in range(60)):
+for t in range(60):
   list.append([t, evaluateEmissions("dataFiles/current_user_data.json", t)])
 
 with open("chart_data.json", "r") as user_data:
