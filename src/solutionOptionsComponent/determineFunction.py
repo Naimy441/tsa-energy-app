@@ -33,7 +33,6 @@ def determineFunction(jsonFileName):
   EnergyData = pd.read_csv(r"C:\Users\masia\OneDrive\Documents\tsa-energy-app-main\tsa-energy-app-main\src\solutionOptionsComponent\ce3.1 (1).xlsx - EnergyData (1).csv")
 
   housing_unit_type = jsonUserData["Statistics"]["Housing unit type"]
-  ownership = jsonUserData["Statistics"]["Ownership of housing unit"]
   year_of_construction = jsonUserData["Statistics"]["Year of construction"]
   square_footage = jsonUserData["Statistics"]["Total square footage"]
   num_of_household_members = jsonUserData["Statistics"]["Number of household members"]
