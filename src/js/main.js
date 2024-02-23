@@ -1,7 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
-const { userInfo } = require('os');
 const { PythonShell } = require('python-shell')
-datetime = require('node-datetime')
 path = require('path')
 fs = require('fs')
 console = require('console')
@@ -16,7 +14,7 @@ const createWindow = () => {
         icon: path.join(__dirname, '../', '../', 'images/LoveToLearn.ico')
     })
 
-    win.loadFile('src/html/homepage.html')
+    win.loadFile('src/html/index.html')
 } 
 
 // Main Functions
@@ -50,9 +48,9 @@ function saveUserData(event, jsonData) {
     fs.writeFileSync(userDataFile, jsonData)
 }
 
-function getCurrentDate(event) {
-    event.returnValue = datetime.create().format('m/d/Y H:M:S')
-}
+// function getCurrentDate(event) {
+//     event.returnValue = datetime.create().format('m/d/Y H:M:S')
+// }
 
 function getPythonData(event, filename, request, jsonData) {
     let pyshell = new PythonShell(path.join(__dirname, '../', 'algorithms/') + filename + '.py', {
@@ -68,13 +66,11 @@ function getPythonData(event, filename, request, jsonData) {
     })
 }
 
-
-
 app.whenReady().then(() => {
     ipcMain.on('load-html', loadHTML)
     ipcMain.on('load-user-data', loadUserData)
     ipcMain.on('save-user-data', saveUserData)
-    ipcMain.on('get-current-date', getCurrentDate)
+    // ipcMain.on('get-current-date', getCurrentDate)
     ipcMain.on('get-python-data', getPythonData)
     ipcMain.on('random', random)
     ipcMain.on('print', print)
