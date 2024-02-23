@@ -40,7 +40,7 @@ def determineFunction(jsonFileName):
   household_income = jsonUserData["Statistics"]["2020 annual household income"]
   payment_method = jsonUserData["Statistics"]["Payment method for energy bills"]
 
-  statsArray = [["Housing unit type", housing_unit_type], ["Ownership of housing unit", ownership], ["Year of construction", year_of_construction], ["Total square footage", square_footage], ["Number of household members", num_of_household_members], ["2020 annual household income", household_income], ["Payment method for energy bills", payment_method]]
+  statsArray = [["Housing unit type", housing_unit_type], ["Year of construction", year_of_construction], ["Total square footage", square_footage], ["Number of household members", num_of_household_members], ["2020 annual household income", household_income], ["Payment method for energy bills", payment_method]]
 
   arrayOfFuels =  [ ["Space heating", "", 1 ],  ["Water heating", "", 1 ], ["Air conditioning", "", 1], ["Refrigerators", "", 1 ], ["Other", "", 1 ]] 
   symbolsOfFuels = [sh_consumption, wh_consumption, ac_consumption, refrigerators_consumption, other_consumption]
