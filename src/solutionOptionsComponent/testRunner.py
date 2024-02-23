@@ -17,7 +17,7 @@ determineFunction("dataFiles/current_user_data.json")
 
 list = [] 
 for (t in range(60)):
-  list.append([t, evaluateEmissions("dataFiles/current_user_data.json", 12)])
+  list.append([t, evaluateEmissions("dataFiles/current_user_data.json", t)])
 
 with open("chart_data.json", "r") as user_data:
     jsonUserData = json.load(user_data)
