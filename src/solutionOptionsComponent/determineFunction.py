@@ -1,9 +1,6 @@
 from sympy import *
-from sympy import Array
-import math
 import pandas as pd
 import json
-import sys
 
 def determineFunction(jsonFileName):
   jsonFileName = jsonFileName
@@ -30,7 +27,7 @@ def determineFunction(jsonFileName):
   Consumption_Hours = [SH_HOURS_PER_DAY, WH_HOURS_PER_DAY, AC_HOURS_PER_DAY, REFRIGERATORS_HOURS_PER_DAY, OTHER_CONSUMPTION_HOURS_PER_DAY] 
 
   #DEFINED THE DATA SET HERE
-  EnergyData = pd.read_csv(r"C:\Users\masia\OneDrive\Documents\tsa-energy-app-main\tsa-energy-app-main\src\solutionOptionsComponent\ce3.1 (1).xlsx - EnergyData (1).csv")
+  EnergyData = pd.read_csv(r"C:\Users\abdul\tsa-energy-app\tsa-energy-app\src\solutionOptionsComponent\ce3.1 (1).xlsx - EnergyData (1).csv")
 
   housing_unit_type = jsonUserData["Statistics"]["Housing unit type"]
   year_of_construction = jsonUserData["Statistics"]["Year of construction"]
@@ -78,8 +75,8 @@ def determineFunction(jsonFileName):
 
   var = str(var)
 
-  with open (jsonFileName, "r") as file:
-    jsonData = json.load(file)
+  with open (jsonFileName, "r") as f:
+    jsonData = json.load(f)
     jsonData["CO2 Function"] = var
     newData  = json.dumps(jsonData, indent = 4)
 

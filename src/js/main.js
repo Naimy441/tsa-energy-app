@@ -52,17 +52,27 @@ function saveUserData(event, jsonData) {
 //     event.returnValue = datetime.create().format('m/d/Y H:M:S')
 // }
 
+// filename is a word
+// request is the key for the message, which comes from the python file
+// jsonData must be a string
 function getPythonData(event, filename, request, jsonData) {
-    let pyshell = new PythonShell(path.join(__dirname, '../', 'solutionsOptionComponent/') + filename + '.py', {
+    let pyshell = new PythonShell(path.join(__dirname, '../', 'solutionOptionsComponent/') + filename + '.py', {
         mode: 'json',
         args: [jsonData]
     })
     pyshell.on('message', function(message) {
+        console.log(message)
         rawData = fs.readFileSync(userDataFile)
         userData = JSON.parse(rawData)
         userData['ipcData'] = message[request]
         fs.writeFileSync(userDataFile, JSON.stringify(userData))
     })
+    pyshell.end(function (err,code,signal) {
+        if (err) throw err
+        console.log('The exit code was: ' + code)
+        console.log('The exit signal was: ' + signal)
+        console.log('finished')
+      })
 }
 
 app.whenReady().then(() => {
