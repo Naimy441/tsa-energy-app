@@ -1,10 +1,10 @@
 from sympy import *
 import pandas as pd
 import json
+from pathlib import Path
 
-def determineFunction(jsonFileName):
-  jsonFileName = jsonFileName
-  with open(jsonFileName, "r") as user_data:
+def determineFunction(CWD):
+  with open("dataFiles/current_user_data.json", "r") as user_data:
     jsonUserData = json.load(user_data)
   with open("dataFiles/constants.json", "r") as constants:
     jsonConstants = json.load(constants)
@@ -26,8 +26,9 @@ def determineFunction(jsonFileName):
 
   Consumption_Hours = [SH_HOURS_PER_DAY, WH_HOURS_PER_DAY, AC_HOURS_PER_DAY, REFRIGERATORS_HOURS_PER_DAY, OTHER_CONSUMPTION_HOURS_PER_DAY] 
 
-  #DEFINED THE DATA SET HERE
-  EnergyData = pd.read_csv(r"C:\Users\abdul\tsa-energy-app\tsa-energy-app\src\solutionOptionsComponent\ce3.1 (1).xlsx - EnergyData (1).csv")
+  # DEFINED THE DATA SET HERE
+  energyDataPathObject = Path("src/solutionOptionsComponent/energyData.csv").absolute()
+  EnergyData = pd.read_csv(energyDataPathObject.resolve())
 
   housing_unit_type = jsonUserData["Statistics"]["Housing unit type"]
   year_of_construction = jsonUserData["Statistics"]["Year of construction"]
@@ -75,10 +76,10 @@ def determineFunction(jsonFileName):
 
   var = str(var)
 
-  with open (jsonFileName, "r") as f:
+  with open ("dataFiles/current_user_data.json", "r") as f:
     jsonData = json.load(f)
     jsonData["CO2 Function"] = var
     newData  = json.dumps(jsonData, indent = 4)
 
-  with open(jsonFileName, "w") as file2:
+  with open("dataFiles/current_user_data.json", "w") as file2:
     file2.write(newData)
