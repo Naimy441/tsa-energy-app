@@ -59,6 +59,8 @@ def determineFunction(CWD):
     #print(statsArray[i][1] + ": " + str(average_energy_site_consumption))
     factor = average_energy_site_consumption/TOTAL_CONSUMPTION_PER_HOUSE
     coefficient = coefficient*factor
+    #TEST1
+    print(coefficient)
 
   for i in range(len(arrayOfFuels)):
     fuel = arrayOfFuels[i]
@@ -67,7 +69,8 @@ def determineFunction(CWD):
       #print(EnergyData.loc[j, "Category"])
       if (EnergyData.loc[j, "Category"] == fuel[1]):
         average_energy_fuel_consumption = float(EnergyData.loc[j, fuel[0]])
-        #print(fuel[1] + ": " + str(average_energy_fuel_consumption))
+        #TEST2
+        print(fuel[1] + ": " + str(average_energy_fuel_consumption) + ", " + str(Consumption_Hours[i]))
     summand = (average_energy_fuel_consumption/(Consumption_Hours[i]))
     for factor in Conversion_Factors:
       if (fuel[1] == factor[0]):
