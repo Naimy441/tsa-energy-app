@@ -51,7 +51,7 @@ def sinusoidalFit():
   
   averagewh = (maxwhtime + minwhtime) / 2
 
-  totalshtime = averagewh + ((maxwhtime - averagewh) * cos(2*pi*(t - maxwhmonth)) 
+  totalwhtime = averagewh + ((maxwhtime - averagewh) * cos(2*pi*(t - maxwhmonth)) 
 
 
   #AIR CONDITIONING
@@ -66,7 +66,9 @@ def sinusoidalFit():
   
   averageac = (maxactime + minactime) / 2
 
-  totalshtime = averageac + ((maxactime - averageac) * cos(2*pi*(t - maxacmonth)) 
+  totalactime = averageac + ((maxactime - averageac) * cos(2*pi*(t - maxacmonth)) 
+
+  return [str(totalshtime), str(totalwhtime), str(totalactime)]
   
   
 
