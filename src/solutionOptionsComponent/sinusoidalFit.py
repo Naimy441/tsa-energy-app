@@ -34,7 +34,7 @@ def sinusoidalFit():
 
   averagesh = (maxshtime + minshtime) / 2
 
-  totalshtime = (maxshtime + minshtime)/2 + sin( ) 
+  totalshtime = averagesh + ((maxshtime - averagesh) * cos(2*pi*(t - maxshmonth)) 
 
   
 
@@ -48,6 +48,11 @@ def sinusoidalFit():
   minwhmonth = jsonUserData["Consumption information"]["Water heating"][2][0]
   minwhmonth = DICTIONARY[minwhmonth]
 
+  
+  averagewh = (maxwhtime + minwhtime) / 2
+
+  totalshtime = averagewh + ((maxwhtime - averagewh) * cos(2*pi*(t - maxwhmonth)) 
+
 
   #AIR CONDITIONING
   maxactime = jsonUserData["Consumption information"]["Air conditioning"][1][1]
@@ -57,6 +62,11 @@ def sinusoidalFit():
   minactime = jsonUserData["Consumption information"]["Air conditioning"][2][1]
   minacmonth = jsonUserData["Consumption information"]["Air conditioning"][2][0]
   minacmonth = DICTIONARY[minacmonth]
+
+  
+  averageac = (maxactime + minactime) / 2
+
+  totalshtime = averageac + ((maxactime - averageac) * cos(2*pi*(t - maxacmonth)) 
   
   
 
