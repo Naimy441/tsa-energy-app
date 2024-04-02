@@ -9,9 +9,9 @@
     "Payment method for energy bills":"All paid by household"},
      "Consumption information":
       {
-        "Space heating":["Propane",["December",8], ["June", 2]],
-        "Water heating":["Propane", ["December", 4], ["July", 3]],
-        "Air conditioning":["Propane", ["July", 10], ["December", 2]],
+        "Space heating":["Propane",["December",8]],
+        "Water heating":["Propane", ["December", 4]],
+        "Air conditioning":["Propane", ["July", 10]],
         "Refrigerators":["Wood",5],
         "Other":["Electricity",2]
       },
