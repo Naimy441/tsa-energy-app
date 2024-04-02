@@ -68,6 +68,10 @@ def sinusoidalFit():
 
   totalactime = averageac + ((maxactime - averageac) * cos(2*pi*(t - maxacmonth)) 
 
+  #print(str(totalshtime))
+  #print(str(totalwhtime))
+  #print(str(totalactime))
+                             
   return [str(totalshtime), str(totalwhtime), str(totalactime)]
   
   
