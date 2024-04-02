@@ -1,4 +1,4 @@
-from sympy import *
+tefrom sympy import *
 import json
 import sys
 import os
