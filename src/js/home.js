@@ -33,13 +33,25 @@ document.getElementById("surveyForm").addEventListener("submit", function(event)
     userData['Statistics']['2020 annual household income'] = formValues['2020 annual household income']
     userData['Statistics']['Payment method for energy bills'] = formValues['Payment method for energy bills']
 
-    userData['Consumption information']['Space heating'] = [formValues['Space heating'], getInfoNum(formValues['Space heating'])]
-    userData['Consumption information']['Water heating'] = [formValues['Water heating'], getInfoNum(formValues['Water heating'])]
-    userData['Consumption information']['Air conditioning'] = [formValues['Air conditioning'], getInfoNum(formValues['Air conditioning'])]
+    userData['Consumption information']['Space heating'] = [
+        formValues['Space heating'],
+        [formValues['Highest space heating month', formValues['Highest hours for space heating']], 
+        ['', formValues['Lowest hours for space heating']]]
+    ]
+    userData['Consumption information']['Water heating'] = [
+        formValues['Water heating'],
+        [formValues['Highest water heating month', formValues['Highest hours for water heating']], 
+        ['', formValues['Lowest hours for water heating']]]
+    ]
+    userData['Consumption information']['Air conditioning'] = [
+        formValues['Air conditioning'],
+        [formValues['Highest air conditioning month', formValues['Highest hours for air conditioning']], 
+        ['', formValues['Lowest hours for air conditioning']]]
+    ]
     userData['Consumption information']['Refrigerators'] = [formValues['Refrigerators'], getInfoNum(formValues['Refrigerators'])]
     userData['Consumption information']['Other'] = [formValues['Other'], getInfoNum(formValues['Other'])]
 
     window.electronAPI.saveUserData(JSON.stringify(userData))
-    window.electronAPI.getPythonData('testRunner', 'chartList', JSON.stringify(userData))
+    window.electronAPI.getPythonData('testRunner', 'chartLists', JSON.stringify(userData))
     window.electronAPI.loadHTML('chart')
 });

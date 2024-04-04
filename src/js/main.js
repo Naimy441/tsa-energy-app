@@ -71,7 +71,8 @@ function getPythonData(event, filename, request, jsonData) {
         console.log(message)
         rawData = fs.readFileSync(userDataFile)
         userData = JSON.parse(rawData)
-        userData['ipcData'] = message[request]
+        userData['ipcData1'] = message[request]['ipcData1']
+        userData['ipcData2'] = message[request]['ipcData2']
         fs.writeFileSync(userDataFile, JSON.stringify(userData))
     })
     pyshell.end(function (err,code,signal) {

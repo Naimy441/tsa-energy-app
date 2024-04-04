@@ -2,118 +2,142 @@ document.getElementById("back").addEventListener('click', () => {
     window.electronAPI.loadHTML('index')
 })
 
-// setTimeout(() => {
-//     chartList = window.electronAPI.loadUserData()['ipcData']
+setTimeout(() => {
+    chartList1 = window.electronAPI.loadUserData()['ipcData1']
+    chartList2 = window.electronAPI.loadUserData()['ipcData2']
     
-//     var chart = anychart.column()
+    chart1 = anychart.area()
+    chart2 = anychart.area()
 
-//     // Set chart data
-//     chart.column(chartList)
+    dict1 = []
+    for (let i = 0; i < chart1.length; i++) {
+      dict1.push({'x': chart1[i][0], 'value': chart1[i][1]})
+    } 
+    dict2 = []
+    for (let i = 0; i < chart2.length; i++) {
+      dict2.push({'x': chart2[i][0], 'value': chart2[i][1]})
+    } 
 
-//     chart.title("Projected Carbon Emissions")
-
-//     // Set chart axes titles
-//     chart.xAxis().title("Non-Renewable Energy Emitted")
-//     chart.yAxis().title("Months")
-
-//     // Draw the chart
-//     chart.container("chart")
-//     chart.draw();
-// }, 1500)
-  
-  setTimeout(() => {
-    anychart.onDocumentReady(function () {
-        // data
-        data = anychart.data.set([
-          {x: 1, value: 10},
-          {x: 2, value: 2},
-          {x: 3, value: 15},
-          {x: 4, value: 10},
-          {x: 5, value: 15}
-        ]);
-
-        data3 = anychart.data.set([
-            {x: 1, value: 30},
-            {x: 2, value: 20},
-            {x: 3, value: 10},
-            {x: 4, value: 80},
-            {x: 5, value: 43}
-          ]);
+    chart1.animation(true);
+    chart2.animation(true);
       
-        // set chart type
-        var chart = anychart.area();
-
-        chart.animation(true);
-      
-        chart.title("Append Point Demo");
+        chart1.title("C02 Emissions per Year");
+        chart2.title("Total C02 Emissions");
       
         // configure the main y-scale
-        var yScale1 = anychart.scales.linear();
-        yScale1.maximum(1000);
-        yScale1.minimum(-1000);
+        var yScale = anychart.scales.linear();
+        yScale.maximum(1000);
+        yScale.minimum(-1000);
 
         // configure the main y-axis
-        chart.yAxis(0);
+        chart1.yAxis(0);
+        chart2.yAxis(0);
 
         // set data
-        chart.splineArea(data);
+        chart1.splineArea(chartList1);
+        chart2.splineArea(chartList2);
 
-        chart.splineArea(data3);
-
-        chart.yScale(yScale1);
-    
+        chart1.yScale(yScale);
+        chart2.yScale(yScale);
 
         // set container and draw chart
-        chart.container("chart").draw();
-      });
+        chart1.container("chart1").draw();
+        chart2.container("chart1").draw();
+}, 1500)
+  
+  // setTimeout(() => {
+  //   anychart.onDocumentReady(function () {
+  //       // data
+  //       data = anychart.data.set([
+  //         {x: 1, value: 10},
+  //         {x: 2, value: 2},
+  //         {x: 3, value: 15},
+  //         {x: 4, value: 10},
+  //         {x: 5, value: 15}
+  //       ]);
 
-      newIndex = 6
-      start = 50;
-      start3 = 50;
+  //       data3 = anychart.data.set([
+  //           {x: 1, value: 30},
+  //           {x: 2, value: 20},
+  //           {x: 3, value: 10},
+  //           {x: 4, value: 80},
+  //           {x: 5, value: 43}
+  //         ]);
       
-      // function, if listener triggers
-      function addPoint() {
-        // first index for new point
-      
-        if (newIndex > 50) {
-            data.remove(0)
-            data3.remove(0)
-        }
+  //       // set chart type
+  //       var chart = anychart.area();
 
-        if (Math.floor((Math.random() * 4) + 1) < 4) {
-            start += Math.floor((Math.random() * 15) + 1)
-        } else{
-            start -= Math.floor((Math.random() * 15) + 1)
-        }
-
-        // append data
-        data.append({
+  //       chart.animation(true);
       
-          // x value
-          x: newIndex,
+  //       chart.title("Append Point Demo");
       
-          // random value from 1 to 100
-          value : start
-        })
+  //       // configure the main y-scale
+  //       var yScale1 = anychart.scales.linear();
+  //       yScale1.maximum(1000);
+  //       yScale1.minimum(-1000);
 
-        if (Math.floor((Math.random() * 4) + 1) < 4) {
-            start3 -= Math.floor((Math.random() * 15) + 1)
-        } else{
-            start3 += Math.floor((Math.random() * 15) + 1)
-        }
+  //       // configure the main y-axis
+  //       chart.yAxis(0);
 
-        data3.append({
+  //       // set data
+  //       chart.splineArea(data);
+
+  //       chart.splineArea(data3);
+
+  //       chart.yScale(yScale1);
+    
+
+  //       // set container and draw chart
+  //       chart.container("chart").draw();
+  //     });
+
+  //     newIndex = 6
+  //     start = 50;
+  //     start3 = 50;
       
-            // x value
-            x: newIndex,
+  //     // function, if listener triggers
+  //     function addPoint() {
+  //       // first index for new point
+      
+  //       if (newIndex > 50) {
+  //           data.remove(0)
+  //           data3.remove(0)
+  //       }
+
+  //       if (Math.floor((Math.random() * 4) + 1) < 4) {
+  //           start += Math.floor((Math.random() * 15) + 1)
+  //       } else{
+  //           start -= Math.floor((Math.random() * 15) + 1)
+  //       }
+
+  //       // append data
+  //       data.append({
+      
+  //         // x value
+  //         x: newIndex,
+      
+  //         // random value from 1 to 100
+  //         value : start
+  //       })
+
+  //       if (Math.floor((Math.random() * 4) + 1) < 4) {
+  //           start3 -= Math.floor((Math.random() * 15) + 1)
+  //       } else{
+  //           start3 += Math.floor((Math.random() * 15) + 1)
+  //       }
+
+  //       data3.append({
+      
+  //           // x value
+  //           x: newIndex,
         
-            // random value from 1 to 100
-            value : start3
-          })
+  //           // random value from 1 to 100
+  //           value : start3
+  //         })
 
-        newIndex++
-      };
+  //       newIndex++
+  //     };
 
-    // Update the chart every second (example)
-    setInterval(addPoint, 100);
-  }, 1500)
+  //   // Update the chart every second (example)
+  //   setInterval(addPoint, 100);
+  // }, 1500)
