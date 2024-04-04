@@ -2,7 +2,7 @@ from sympy import *
 import json
 import os
 
-def sinusoidalFit():
+def sinusoidalFitReduction():
   DICTIONARY = {
     "January": 1/12,
     "February": 2/12,
