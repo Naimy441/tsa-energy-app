@@ -397,12 +397,16 @@
 
 
                 <br>
-                <button class="button is-primary" type="submit" id="submit">Submit</button>
+				<button class="button is-primary submit-button" type="submit" id="submit">Submit</button>
             </section>
             </form>
         </section>
     </body>
     <style>
+		.submit-button {
+    	margin-top: 20px; /* Adjust the margin as needed */
+		}
+
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -471,6 +475,7 @@
         .slideInRight {
             animation-name: slideInRight;
         }
+		
     </style>
     <script>
         document.getElementById("submit").addEventListener
