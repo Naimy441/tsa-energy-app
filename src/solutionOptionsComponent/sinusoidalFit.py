@@ -1,4 +1,6 @@
 from sympy import *
+import json
+import os
 
 def sinusoidalFit():
   DICTIONARY = {
@@ -16,10 +18,10 @@ def sinusoidalFit():
     "December": 1
   }
 
-
+  print(os.listdir())
   t = symbols("t")
   
-  with open("dataFiles/current_user_data.json", "r") as user_data:
+  with open("dataFiles\current_user_data.json", "r") as user_data:
     jsonUserData = json.load(user_data)
 
 
@@ -34,10 +36,9 @@ def sinusoidalFit():
 
   averagesh = (maxshtime + minshtime) / 2
 
-  totalshtime = averagesh + ((maxshtime - averagesh) * cos(2*pi*(t - maxshmonth)) 
+  totalshtime = averagesh + ((maxshtime - averagesh) * cos(2*pi*(t - maxshmonth)))
 
   
-
 
   #WATER HEATING
   maxwhtime = jsonUserData["Consumption information"]["Water heating"][1][1]
@@ -51,7 +52,7 @@ def sinusoidalFit():
   
   averagewh = (maxwhtime + minwhtime) / 2
 
-  totalwhtime = averagewh + ((maxwhtime - averagewh) * cos(2*pi*(t - maxwhmonth)) 
+  totalwhtime = averagewh + ((maxwhtime - averagewh) * cos(2*pi*(t - maxwhmonth)))
 
 
   #AIR CONDITIONING
@@ -66,13 +67,18 @@ def sinusoidalFit():
   
   averageac = (maxactime + minactime) / 2
 
-  totalactime = averageac + ((maxactime - averageac) * cos(2*pi*(t - maxacmonth)) 
+  totalactime = averageac + ((maxactime - averageac) * cos(2*pi*(t - maxacmonth)) )
 
-  #print(str(totalshtime))
-  #print(str(totalwhtime))
-  #print(str(totalactime))
+  print(str(totalshtime))
+  print(str(totalwhtime))
+  print(str(totalactime))
                              
   return [str(totalshtime), str(totalwhtime), str(totalactime)]
+  
+  
+
+sinusoidalFit()
+
   
   
 
