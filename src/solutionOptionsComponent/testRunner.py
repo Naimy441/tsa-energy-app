@@ -4,7 +4,7 @@ from determineFunction import determineFunction
 
 x,t = symbols("x t")
 
-determineFunction("dataFiles/current_user_data.json")
+determineFunction()
 
 with open("dataFiles/current_user_data.json", "r") as user_data:
     jsonUserData = json.load(user_data)
