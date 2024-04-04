@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
+const { userInfo } = require('os');
 const { PythonShell } = require('python-shell')
 path = require('path')
 fs = require('fs')
@@ -6,7 +7,7 @@ console = require('console')
 
 userDataFile = path.join(__dirname, '../', '../', 'dataFiles', 'current_user_data.json')
 
-const createWindow = () => {
+function createWindow(htmlName) {
     const win = new BrowserWindow({
         fullscreen: true,
         frame: false,
@@ -16,7 +17,7 @@ const createWindow = () => {
         icon: path.join(__dirname, '../', '../', 'images/LoveToLearn.ico')
     })
 
-    win.loadFile('src/html/index.html')
+    win.loadFile('src/html/' + htmlName + '.html')
 } 
 
 // Main Functions
@@ -38,6 +39,12 @@ function loadUserData(event) {
     rawData = fs.readFileSync(userDataFile)
     userData = JSON.parse(rawData)
     event.returnValue = userData
+}
+
+function returnUserData() {
+    rawData = fs.readFileSync(userDataFile)
+    userData = JSON.parse(rawData)
+    return userData
 }
 
 function print(event, message) {
@@ -83,6 +90,14 @@ app.whenReady().then(() => {
     ipcMain.on('get-python-data', getPythonData)
     ipcMain.on('random', random)
     ipcMain.on('print', print)
-
-    createWindow()
+    
+    startComplete = returnUserData()['startComplete']
+    if (!startComplete)
+    {
+        createWindow('start')
+    }
+    else    
+    {
+        createWindow('home')
+    }
 })
