@@ -109,4 +109,3 @@ def determineFunction():
   with open("dataFiles/current_user_data.json", "w") as file2:
     file2.write(newData)
 
-determineFunction()
