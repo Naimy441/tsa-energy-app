@@ -4,8 +4,8 @@ import json
 from pathlib import Path
 from sinusoidalFit import sinusoidalFit
 
-def determineFunction(CWD):
-  with open(CWD, "r") as user_data:
+def determineFunction():
+  with open("dataFiles/current_user_data.json", "r") as user_data:
     jsonUserData = json.load(user_data)
   with open("dataFiles/constants.json", "r") as constants:
     jsonConstants = json.load(constants)
