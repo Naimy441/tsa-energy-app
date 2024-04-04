@@ -12,6 +12,9 @@ function getInfoNum(string) {
     }
 }
 
+username = window.electronAPI.loadUserData()['userData']['name']
+document.getElementById('greeting').innerText = "Welcome back, " + username + "!"
+
 document.getElementById("surveyForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent form submission
 

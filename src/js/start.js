@@ -1,4 +1,6 @@
 document.getElementById('begin').addEventListener('click', function(event) {
+    event.preventDefault()
+
     userData = window.electronAPI.loadUserData()
 
     username = document.getElementById('name').value
@@ -8,8 +10,8 @@ document.getElementById('begin').addEventListener('click', function(event) {
         userData['startComplete'] = true
         userData['userData']['name'] = username
         userData['userData']['email'] = email 
-    }
 
-    window.electronAPI.saveUserData(JSON.stringify(userData))
-    window.electronAPI.loadHTML('home')
+        window.electronAPI.saveUserData(JSON.stringify(userData))
+        window.electronAPI.loadHTML('home')
+    }
 })
