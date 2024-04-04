@@ -10,6 +10,8 @@ def determineFunctionReduction():
   with open("dataFiles/constants.json", "r") as constants:
     jsonConstants = json.load(constants)
   x, t, sh_consumption, sh_time, wh_consumption, wh_time, ac_consumption, ac_time, refrigerators_consumption, refrigerators_time, other_consumption, other_time= symbols("x t sh_consumption sh_time wh_consumption wh_time ac_consumption ac_time refrigerators_consumption refrigerators_time other_consumption other_time")
+  maxshtime, minshtime, averagesh, maxwhtime, minwhtime, averagewh, maxactime, minactime, averageac = symbols("maxshtime minshtime averagesh maxwhtime minwhtime averagewh maxactime minactime averageac")
+
   TOTAL_CONSUMPTION_PER_HOUSE = jsonConstants["Total consumption per house"]
   ELECTRICITY_CONVERSION_FACTOR = jsonConstants["Carbon constants"]["Electricity"]
   NATURAL_GAS_CONVERSION_FACTOR = jsonConstants["Carbon constants"]["Natural gas"]
