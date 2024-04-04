@@ -1,5 +1,5 @@
 import json
-from sympy as *
+from sympy import *
 from determineFunction import determineFunction
 
 x,t = symbols("x t")
