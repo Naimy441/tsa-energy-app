@@ -5,7 +5,7 @@ from pathlib import Path
 from sinusoidalFit import sinusoidalFit
 
 def determineFunction(CWD):
-   with open("dataFiles/current_user_data.json", "r") as user_data:
+  with open("dataFiles/current_user_data.json", "r") as user_data:
     jsonUserData = json.load(user_data)
   with open("dataFiles/constants.json", "r") as constants:
     jsonConstants = json.load(constants)
@@ -61,24 +61,37 @@ def determineFunction(CWD):
     factor = average_energy_site_consumption/TOTAL_CONSUMPTION_PER_HOUSE
     coefficient = coefficient*factor
     #TEST1
-    print(coefficient)
+    #print(coefficient)
 
   for i in range(len(arrayOfFuels)):
     fuel = arrayOfFuels[i]
+    print("\n" + fuel[0] + ":")
+    print("Fuel: " + fuel[1])
     #print(fuel[1])
     for j in EnergyData.index:
       #print(EnergyData.loc[j, "Category"])
       if (EnergyData.loc[j, "Category"] == fuel[1]):
         average_energy_fuel_consumption = float(EnergyData.loc[j, fuel[0]])
+        print("Average Energy Fuel Consumption " + str(average_energy_fuel_consumption))
         #TEST2////////
-        print(fuel[1] + ": " + str(average_energy_fuel_consumption) + ", " + str(Consumption_Hours[i]))
+        #print(fuel[1] + ": " + str(average_energy_fuel_consumption) + ", " + str(Consumption_Hours[i]))
     summand = (average_energy_fuel_consumption/(Consumption_Hours[i]))
     for factor in Conversion_Factors:
       if (fuel[1] == factor[0]):
+        #print(summand, factor[1])
         summand = summand*factor[1]
-      var = var.subs(symbolsOfFuels[i], summand)
+    var = var.subs(symbolsOfFuels[i], summand)
+    print("Summand: " + str(summand))
+    print("Final Yearly Emissions: " + str(summand*Consumption_Hours[i]))
+      
 
+    
+  sineList = sinusoidalFit()
+  var = (var.subs(sh_time, sympify(sineList[0]))).subs(wh_time, sympify(sineList[1])).subs(ac_time, sympify(sineList[2]))
+  var = var.subs(refrigerators_time, jsonUserData["Consumption information"]["Refrigerators"][1])
+  var = var.subs(other_time, jsonUserData["Consumption information"]["Other"][1])
   var = str(var)
+  print(var)
 
   with open ("dataFiles/current_user_data.json", "r") as f:
     jsonData = json.load(f)
@@ -87,3 +100,5 @@ def determineFunction(CWD):
 
   with open("dataFiles/current_user_data.json", "w") as file2:
     file2.write(newData)
+
+determineFunction("2")
