@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" data-theme ="light">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>CarbonTrackerPro</title>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
+		<!-- Bulma Version 1-->
+		<link rel="stylesheet" href="https://unpkg.com/bulma@1.0.0/css/bulma.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/register.css">
+		<script defer src="../js/home.js"></script>
+	</head>
+
+	<body>
+		<section class="hero is-link">
+			<div class="hero-body">
+				<p class="title">Welcome back, Abdullah!</p>
+				<p class="subtitle">Feeling energized?</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<h1 class="title">Up Next</h1>
+			<h2 class="subtitle">
+				Finish filling out a <strong>short</strong> form to get started.
+			</h2>
+
+			<progress class="progress is-info" value="50" max="100">
+				45%
+			</progress>
+		</section>
+
+		<section class="section" id="next">
+			<form id="surveyForm">
+
+				<div class="columns">
+				<div class="column">
+				<h1 class="title">Housing Questions</h1>
+				<div class="block">
+					<label class="label" for="Housing unit type">Housing Unit Type</label>
+					<div class="select">
+						<select id="Housing unit type" name="Housing unit type">
+							<option value="Single-family detached">Single-family detached</option>
+							<option value="Single-family attached">Single-family attached</option>
+							<option value="Apartments in buildings with 2-4 units">Apartments in buildings with 2-4 units</option>
+							<option value="Apartments in buildings with 5 or more units">Apartments in buildings with 5 or more units</option>
+							<option value="Mobile homes">Mobile homes</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Year of construction">Housing Unit Year of Construction</label>
+					<div class="select">
+						<select id="Year of construction" name="Year of construction">
+								<option value="Before 1950">Before 1950</option>
+								<option value="1950 to 1959">1950 to 1959</option>
+								<option value="1960 to 1969">1960 to 1969</option>
+								<option value="1970 to 1979">1970 to 1979</option>
+								<option value="1980 to 1989">1980 to 1989</option>
+								<option value="1990 to 1999">1990 to 1999</option>
+								<option value="2000 to 2009">2000 to 2009</option>
+								<option value="2010 to 2015">2010 to 2015</option>
+								<option value="2016 to 2020">2016 to 2020</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Total square footage">Total Square Footage of Housing Unit</label>
+					<div class="select">
+						<select id="Total square footage" name="Total square footage">
+							<option value="Less than 1,000">Less than 1,000</option>
+							<option value="1,000 to 1,499">1,000 to 1,499</option>
+							<option value="1,500 to 1,999">1,500 to 1,999</option>
+							<option value="2,000 to 2,499">2,000 to 2,499</option>
+							<option value="2,500 to 2,999">2,500 to 2,999</option>
+							<option value="3,000 or more">3,000 or more</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Number of household members">Number of Household Members</label>
+					<div class="select">
+						<select id="Number of household members" name="Number of household members">
+							<option value="1 member">1 member</option>
+							<option value="2 members">2 members</option>
+							<option value="3 members">3 members</option>
+							<option value="4 members">4 members</option>
+							<option value="5 members">5 members</option>
+							<option value="6 or more members">6 or more members</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="2020 annual household income">2020 Annual Household Income</label>
+					<div class="select">
+						<select id="2020 annual household income" name="2020 annual household income">
+							<option value="Less than $5,000">Less than $5,000</option>
+							<option value="$5,000 to $9,999">$5,000 to $9,999</option>
+							<option value="$10,000 to $19,999">$10,000 to $19,999</option>
+							<option value="$20,000 to $39,999">$20,000 to $39,999</option>
+							<option value="$40,000 to $59,999">$40,000 to $59,999</option>
+							<option value="$60,000 to $99,999">$60,000 to $99,999</option>
+							<option value="$100,000 to $149,999">$100,000 to $149,999</option>
+							<option value="$150,000 or more">$150,000 or more</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Payment method for energy bills">Payment Method for Energy Bills</label>
+					<div class="select">
+						<select id="Payment method for energy bills" name="Payment method for energy bills">
+							<option value="All paid by household">All paid by household</option>
+							<option value="Some paid by household, some included in rent or condo fee">Some paid by household, some included in rent or condo fee</option>
+							<option value="All included in rent or condo fee">All included in rent or condo fee</option>
+							<option value="Some other method">Some other method</option>
+						</select>
+					</div>
+				</div>
+				</div>
+				<div class="column">
+					<figure class="image is-fullwidth">
+						<img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?cs=srgb&dl=architecture-bungalow-daylight-1396122.jpg" />
+					</figure>
+				</div>
+				</div>
+				
+				<h1 class="title">Energy Sources</h1>
+				<div class="block">
+					<label class="label" for="spaceHeating">Space Heating</label>
+					<div class="select">
+						<select id="Space heating" name="Space heating">
+							<option value="Natural gas">Natural gas</option>
+							<option value="Electricity">Electricity</option>
+							<option value="Fuel oil or kerosene">Fuel oil or kerosene</option>
+							<option value="Propane">Propane</option>
+							<option value="Wood">Wood</option>
+					</select>
+					</div>
+				</div>
+				
+				<div class="block">
+					<label class="label" for="Water heating">Water Heating</label>
+					<div class="select">
+						<select id="Water heating" name="Water heating">
+							<option value="Natural gas">Natural gas</option>
+							<option value="Electricity">Electricity</option>
+							<option value="Fuel oil or kerosene">Fuel oil or kerosene</option>
+							<option value="Propane">Propane</option>
+							<option value="Wood">Wood</option>
+					</select>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Air conditioning">Air Conditioning</label>
+					<div class="select">
+						<select id="Air conditioning" name="Air conditioning">
+							<option value="Natural gas">Natural gas</option>
+							<option value="Electricity">Electricity</option>
+							<option value="Fuel oil or kerosene">Fuel oil or kerosene</option>
+							<option value="Propane">Propane</option>
+							<option value="Wood">Wood</option>
+					</select>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Refrigerators">Refrigerators</label>
+					<div class="select">
+						<select id="Refrigerators" name="Refrigerators">
+							<option value="Natural gas">Natural gas</option>
+							<option value="Electricity">Electricity</option>
+							<option value="Fuel oil or kerosene">Fuel oil or kerosene</option>
+							<option value="Propane">Propane</option>
+							<option value="Wood">Wood</option>
+					</select>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Other">Other</label>
+					<div class="select">
+						<select id="Other" name="Other">
+							<option value="Natural gas">Natural gas</option>
+							<option value="Electricity">Electricity</option>
+							<option value="Fuel oil or kerosene">Fuel oil or kerosene</option>
+							<option value="Propane">Propane</option>
+							<option value="Wood">Wood</option>
+					</select>
+					</div>
+				</div>
+
+				<h1 class="title">Time Estimates</h1>
+				<div class="block">
+					<label class="label" for="Hours for refridgeration">Hours for refridgeration</label>
+					<div class="field">
+						<div class="control">
+						  <input id="Hours for refridgeration" class="input is-medium" type="text" placeholder="0">
+						</div>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Hours for other emissions">Hours for other emissions</label>
+					<div class="field">
+						<div class="control">
+						  <input id="Hours for other emissions" class="input is-medium" type="text" placeholder="0">
+						</div>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Hours for other emissions">Hours for other emissions</label>
+					<div class="field">
+						<div class="control">
+						  <input id="Hours for other emissions" class="input is-medium" type="text" placeholder="0">
+						</div>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Hours for air conditioning">Hours for air conditioning</label>
+					<div class="field">
+						<div class="control">
+						  <input id="Hours for air conditioning" class="input is-medium" type="text" placeholder="0">
+						</div>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Lowest air conditioning month">Lowest air conditioning month</label>
+					<div class="select">
+						<select id="Lowest air conditioning month" name="Lowest air conditioning month">
+							<option value="January">January</option>
+							<option value="February">February</option>
+							<option value="March">March</option>
+							<option value="April">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="August">August</option>
+							<option value="October">October</option>
+							<option value="September">September</option>
+							<option value="November">November</option>
+							<option value="December">December</option>
+					</select>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Highest air conditioning month">Highest air conditioning month</label>
+					<div class="select">
+						<select id="Highest air conditioning month" name="Highest air conditioning month">
+							<option value="January">January</option>
+							<option value="February">February</option>
+							<option value="March">March</option>
+							<option value="April">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="August">August</option>
+							<option value="October">October</option>
+							<option value="September">September</option>
+							<option value="November">November</option>
+							<option value="December">December</option>
+					</select>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Hours for space heating">Hours for space heating</label>
+					<div class="field">
+						<div class="control">
+						  <input id="Hours for space heating" class="input is-medium" type="text" placeholder="0">
+						</div>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Lowest space heating month">Lowest space heating month</label>
+					<div class="select">
+						<select id="Lowest space heating month" name="Lowest space heating month">
+							<option value="January">January</option>
+							<option value="February">February</option>
+							<option value="March">March</option>
+							<option value="April">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="August">August</option>
+							<option value="October">October</option>
+							<option value="September">September</option>
+							<option value="November">November</option>
+							<option value="December">December</option>
+					</select>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Highest space heating month">Highest space heating month</label>
+					<div class="select">
+						<select id="Highest space heating month" name="Highest space heating month">
+							<option value="January">January</option>
+							<option value="February">February</option>
+							<option value="March">March</option>
+							<option value="April">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="August">August</option>
+							<option value="October">October</option>
+							<option value="September">September</option>
+							<option value="November">November</option>
+							<option value="December">December</option>
+					</select>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Hours for water heating">Hours for water heating</label>
+					<div class="field">
+						<div class="control">
+						  <input id="Hours for water heating" class="input is-medium" type="text" placeholder="0">
+						</div>
+					</div>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Lowest water heating month">Lowest water heating month</label>
+					<div class="select">
+						<select id="Lowest water heating month" name="Lowest water heating month">
+							<option value="January">January</option>
+							<option value="February">February</option>
+							<option value="March">March</option>
+							<option value="April">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="August">August</option>
+							<option value="October">October</option>
+							<option value="September">September</option>
+							<option value="November">November</option>
+							<option value="December">December</option>
+					</select>
+				</div>
+
+				<div class="block">
+					<label class="label" for="Highest water heating month">Highest water heating month</label>
+					<div class="select">
+						<select id="Highest water heating month" name="Highest water heating month">
+							<option value="January">January</option>
+							<option value="February">February</option>
+							<option value="March">March</option>
+							<option value="April">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="August">August</option>
+							<option value="October">October</option>
+							<option value="September">September</option>
+							<option value="November">November</option>
+							<option value="December">December</option>
+					</select>
+				</div>
+
+				<br>
+				<button class="button is-primary" type="submit" id="submit">Submit</button>
+			</form>
+		</section>
+	</body>
+	<style>
+		:root {
+			--brandColor: hsl(166, 67%, 51%);
+			--background: rgb(250, 250, 250);
+			--textDark: hsla(0, 0%, 0%, 0.66);
+			--textLight: hsla(0, 0%, 0%, 0.33);
+		}
+
+		body {
+			background: var(--background);
+			height: 100vh;
+			color: var(--textDark);
+		}
+
+		.field:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+
+		.register {
+			margin-top: 10rem;
+			background: white;
+			border-radius: 10px;
+		}
+
+		.left,
+		.right {
+			padding: 4.5rem;
+		}
+
+		.left {
+			border-right: 5px solid var(--background);
+		}
+
+		.left .title {
+			font-weight: 800;
+			letter-spacing: -2px;
+		}
+
+		.left .colored {
+			color: var(--brandColor);
+			font-weight: 500;
+			margin-top: 1rem !important;
+			letter-spacing: -1px;
+		}
+
+		.left p {
+			color: var(--textLight);
+			font-size: 1.15rem;
+		}
+
+		.right .title {
+			font-weight: 800;
+			letter-spacing: -1px;
+		}
+
+		.right .description {
+			margin-top: 1rem;
+			margin-bottom: 1rem !important;
+			color: var(--textLight);
+			font-size: 1.15rem;
+		}
+
+		.right small {
+			color: var(--textLight);
+		}
+
+		input {
+			font-size: 1rem;
+		}
+
+		input:focus {
+			border-color: var(--brandColor) !important;
+			box-shadow: 0 0 0 1px var(--brandColor) !important;
+		}
+
+		.fab,
+		.fas {
+			color: var(--textLight);
+			margin-right: 1rem;
+		}
+
+	</style>
+
+</html>
