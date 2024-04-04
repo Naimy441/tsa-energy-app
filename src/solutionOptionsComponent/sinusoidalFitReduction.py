@@ -21,7 +21,7 @@ def sinusoidalFitReduction():
   #print(os.listdir())
   t, maxshtime, minshtime, averagesh, maxwhtime, minwhtime, averagewh, maxactime, minactime, averageac = symbols("t maxshtime minshtime averagesh maxwhtime minwhtime averagewh maxactime minactime averageac")
   
-  with open("dataFiles\current_user_data.json", "r") as user_data:
+  with open("dataFiles\potential_user_data.json", "r") as user_data:
     jsonUserData = json.load(user_data)
 
 
@@ -68,3 +68,4 @@ def sinusoidalFitReduction():
   #print(str(totalactime))
                              
   return [str(totalshtime), str(totalwhtime), str(totalactime)]
+
