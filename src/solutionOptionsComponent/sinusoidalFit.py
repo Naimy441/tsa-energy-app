@@ -18,7 +18,7 @@ def sinusoidalFit():
     "December": 1
   }
 
-  print(os.listdir())
+  #print(os.listdir())
   t = symbols("t")
   
   with open("dataFiles\current_user_data.json", "r") as user_data:
@@ -69,9 +69,9 @@ def sinusoidalFit():
 
   totalactime = averageac + ((maxactime - averageac) * cos(2*pi*(t - maxacmonth)) )
 
-  print(str(totalshtime))
-  print(str(totalwhtime))
-  print(str(totalactime))
+  #print(str(totalshtime))
+  #print(str(totalwhtime))
+  #print(str(totalactime))
                              
   return [str(totalshtime), str(totalwhtime), str(totalactime)]
   
