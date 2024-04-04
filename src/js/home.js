@@ -35,18 +35,18 @@ document.getElementById("surveyForm").addEventListener("submit", function(event)
 
     userData['Consumption information']['Space heating'] = [
         formValues['Space heating'],
-        [formValues['Highest space heating month', formValues['Highest hours for space heating']], 
-        ['', formValues['Lowest hours for space heating']]]
+        [formValues['Highest space heating month'], parseInt(formValues['Highest hours for space heating'])], 
+        ['February', parseInt(formValues['Lowest hours for space heating'])]
     ]
     userData['Consumption information']['Water heating'] = [
         formValues['Water heating'],
-        [formValues['Highest water heating month', formValues['Highest hours for water heating']], 
-        ['', formValues['Lowest hours for water heating']]]
+        [formValues['Highest water heating month'], parseInt(formValues['Highest hours for water heating'])], 
+        ['February', parseInt(formValues['Lowest hours for water heating'])]
     ]
     userData['Consumption information']['Air conditioning'] = [
         formValues['Air conditioning'],
-        [formValues['Highest air conditioning month', formValues['Highest hours for air conditioning']], 
-        ['', formValues['Lowest hours for air conditioning']]]
+        [formValues['Highest air conditioning month'], parseInt(formValues['Highest hours for air conditioning'])], 
+        ['February', parseInt(formValues['Lowest hours for air conditioning'])]
     ]
     userData['Consumption information']['Refrigerators'] = [formValues['Refrigerators'], getInfoNum(formValues['Refrigerators'])]
     userData['Consumption information']['Other'] = [formValues['Other'], getInfoNum(formValues['Other'])]

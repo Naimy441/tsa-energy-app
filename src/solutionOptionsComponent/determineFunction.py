@@ -52,6 +52,7 @@ def determineFunction():
     fuel[1] = jsonUserData["Consumption information"][fuel[0]][0]
     fuel[2] = jsonUserData["Consumption information"][fuel[0]][1]
 
+  average_energy_site_consumption = 0
   for i in range(len(statsArray)):
     for j in EnergyData.index:
       if (EnergyData.loc[j, "Category"] == statsArray[i][1]):
@@ -109,3 +110,6 @@ def determineFunction():
   with open("dataFiles/current_user_data.json", "w") as file2:
     file2.write(newData)
 
+
+
+determineFunction()

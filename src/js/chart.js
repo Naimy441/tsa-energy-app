@@ -1,28 +1,35 @@
 document.getElementById("back").addEventListener('click', () => {
-    window.electronAPI.loadHTML('index')
+    window.electronAPI.loadHTML('home')
 })
 
 setTimeout(() => {
-    chartList1 = window.electronAPI.loadUserData()['ipcData1']
-    chartList2 = window.electronAPI.loadUserData()['ipcData2']
+    ipcData = window.electronAPI.loadUserData()
+    chartList1 = ipcData['ipcData1']
+    chartList2 = ipcData['ipcData2']
     
     chart1 = anychart.area()
     chart2 = anychart.area()
 
     dict1 = []
-    for (let i = 0; i < chart1.length; i++) {
-      dict1.push({'x': chart1[i][0], 'value': chart1[i][1]})
+    for (let i = 0; i < 5; i++) {
+      dict1.push({x: chartList1[i][0], value: chartList1[i][1]})
     } 
+    data1 = anychart.data.set(dict1)
+
     dict2 = []
-    for (let i = 0; i < chart2.length; i++) {
-      dict2.push({'x': chart2[i][0], 'value': chart2[i][1]})
+    for (let i = 0; i < 5; i++) {
+      dict2.push({x: chartList2[i][0], value: chartList2[i][1]})
     } 
+    data2 = anychart.data.set(dict2)
 
     chart1.animation(true);
     chart2.animation(true);
       
         chart1.title("C02 Emissions per Year");
         chart2.title("Total C02 Emissions");
+
+        // chart1.height = "500px"
+        // chart2.height = "500px"
       
         // configure the main y-scale
         var yScale = anychart.scales.linear();
@@ -34,15 +41,33 @@ setTimeout(() => {
         chart2.yAxis(0);
 
         // set data
-        chart1.splineArea(chartList1);
-        chart2.splineArea(chartList2);
+        chart1.splineArea(data1);
+        chart2.splineArea(data2);
 
-        chart1.yScale(yScale);
-        chart2.yScale(yScale);
+        // chart1.yScale(yScale);
+        // chart2.yScale(yScale);
 
         // set container and draw chart
         chart1.container("chart1").draw();
-        chart2.container("chart1").draw();
+        chart2.container("chart2").draw();
+
+      newIndex = 5
+
+        function addPoint() {
+          if (newIndex < 60) {
+            // if (newIndex > 10) {
+            //   data1.remove(0)
+            //   data2.remove(0)
+            // }
+
+            data1.append({x: chartList1[newIndex][0], value: chartList1[newIndex][1]})
+            data2.append({x: chartList2[newIndex][0], value: chartList2[newIndex][1]})
+
+            newIndex++
+          }
+        }
+
+        setInterval(addPoint, 100)
 }, 1500)
   
   // setTimeout(() => {
@@ -110,15 +135,15 @@ setTimeout(() => {
   //           start -= Math.floor((Math.random() * 15) + 1)
   //       }
 
-  //       // append data
-  //       data.append({
+        // // append data
+        // data.append({
       
-  //         // x value
-  //         x: newIndex,
+        //   // x value
+        //   x: newIndex,
       
-  //         // random value from 1 to 100
-  //         value : start
-  //       })
+        //   // random value from 1 to 100
+        //   value : start
+        // })
 
   //       if (Math.floor((Math.random() * 4) + 1) < 4) {
   //           start3 -= Math.floor((Math.random() * 15) + 1)
