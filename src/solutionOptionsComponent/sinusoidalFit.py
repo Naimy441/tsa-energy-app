@@ -77,7 +77,6 @@ def sinusoidalFit():
   
   
 
-sinusoidalFit()
 
 
   
