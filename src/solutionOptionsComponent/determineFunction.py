@@ -65,14 +65,14 @@ def determineFunction():
 
   for i in range(len(arrayOfFuels)):
     fuel = arrayOfFuels[i]
-    print("\n" + fuel[0] + ":")
-    print("Fuel: " + fuel[1])
+    #print("\n" + fuel[0] + ":")
+    #print("Fuel: " + fuel[1])
     #print(fuel[1])
     for j in EnergyData.index:
       #print(EnergyData.loc[j, "Category"])
       if (EnergyData.loc[j, "Category"] == fuel[1]):
         average_energy_fuel_consumption = float(EnergyData.loc[j, fuel[0]])
-        print("Average Energy Fuel Consumption " + str(average_energy_fuel_consumption))
+        #print("Average Energy Fuel Consumption " + str(average_energy_fuel_consumption))
         #TEST2////////
         #print(fuel[1] + ": " + str(average_energy_fuel_consumption) + ", " + str(Consumption_Hours[i]))
     summand = (average_energy_fuel_consumption/(Consumption_Hours[i]))
@@ -81,8 +81,8 @@ def determineFunction():
         #print(summand, factor[1])
         summand = summand*factor[1]
     var = var.subs(symbolsOfFuels[i], summand)
-    print("Summand: " + str(summand))
-    print("Final Yearly Emissions: " + str(summand*Consumption_Hours[i]))
+    #print("Summand: " + str(summand))
+    #print("Final Yearly Emissions: " + str(summand*Consumption_Hours[i]))
       
 
     
@@ -95,9 +95,9 @@ def determineFunction():
 
 
   var = str(var)
-  print(var)
+  #print(var)
   accumulateVar = str(accumulateVar)
-  print(accumulateVar)
+  #print(accumulateVar)
   
 
   with open ("dataFiles/current_user_data.json", "r") as f:
