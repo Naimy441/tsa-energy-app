@@ -2,10 +2,10 @@ import pandas as pd
 from sympy import *
 import json
 from pathlib import Path
-from sinusoidalFit import sinusoidalFit
+from sinusoidalFitReduction import sinusoidalFitReduction
 
-def determineFunction():
-  with open("dataFiles/current_user_data.json", "r") as user_data:
+def determineFunctionReduction():
+  with open("dataFiles/potential_user_data.json", "r") as user_data:
     jsonUserData = json.load(user_data)
   with open("dataFiles/constants.json", "r") as constants:
     jsonConstants = json.load(constants)
@@ -86,10 +86,8 @@ def determineFunction():
       
 
     
-  sineList = sinusoidalFit()
+  sineList = sinusoidalFitReduction()
   var = (var.subs(sh_time, sympify(sineList[0]))).subs(wh_time, sympify(sineList[1])).subs(ac_time, sympify(sineList[2]))
-  var = var.subs(refrigerators_time, jsonUserData["Consumption information"]["Refrigerators"][1])
-  var = var.subs(other_time, jsonUserData["Consumption information"]["Other"][1])
 
   accumulateVar = integrate(var, (t, 0, x))
 
@@ -99,12 +97,3 @@ def determineFunction():
   accumulateVar = str(accumulateVar)
   #print(accumulateVar)
   
-
-  with open ("dataFiles/current_user_data.json", "r") as f:
-    jsonData = json.load(f)
-    jsonData["CO2 Function"] = var
-    jsonData["CO2 Accumulation Function"] = accumulateVar
-    newData  = json.dumps(jsonData, indent = 4)
-
-  with open("dataFiles/current_user_data.json", "w") as file2:
-    file2.write(newData)
