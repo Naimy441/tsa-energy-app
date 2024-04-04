@@ -37,3 +37,53 @@ def determineFunction(CWD):
   num_of_household_members = jsonUserData["Statistics"]["Number of household members"]
   household_income = jsonUserData["Statistics"]["2020 annual household income"]
   payment_method = jsonUserData["Statistics"]["Payment method for energy bills"]
+
+  statsArray = [["Housing unit type", housing_unit_type], ["Year of construction", year_of_construction], ["Total square footage", square_footage], ["Number of household members", num_of_household_members], ["2020 annual household income", household_income], ["Payment method for energy bills", payment_method]]
+
+  arrayOfFuels =  [ ["Space heating", "", 1 ],  ["Water heating", "", 1 ], ["Air conditioning", "", 1], ["Refrigerators", "", 1 ], ["Other", "", 1 ]] 
+  symbolsOfFuels = [sh_consumption, wh_consumption, ac_consumption, refrigerators_consumption, other_consumption]
+
+
+  coefficient = 1
+  func = coefficient*(sh_consumption * sh_time + wh_consumption * wh_time + ac_consumption * ac_time + refrigerators_consumption * refrigerators_time + other_consumption*other_time)
+  var = func
+
+  for fuel in arrayOfFuels:
+    fuel[1] = jsonUserData["Consumption information"][fuel[0]][0]
+    fuel[2] = jsonUserData["Consumption information"][fuel[0]][1]
+
+  for i in range(len(statsArray)):
+    for j in EnergyData.index:
+      if (EnergyData.loc[j, "Category"] == statsArray[i][1]):
+        average_energy_site_consumption = float(EnergyData.loc[j, "Total"])
+
+    #print(statsArray[i][1] + ": " + str(average_energy_site_consumption))
+    factor = average_energy_site_consumption/TOTAL_CONSUMPTION_PER_HOUSE
+    coefficient = coefficient*factor
+    #TEST1
+    print(coefficient)
+
+  for i in range(len(arrayOfFuels)):
+    fuel = arrayOfFuels[i]
+    #print(fuel[1])
+    for j in EnergyData.index:
+      #print(EnergyData.loc[j, "Category"])
+      if (EnergyData.loc[j, "Category"] == fuel[1]):
+        average_energy_fuel_consumption = float(EnergyData.loc[j, fuel[0]])
+        #TEST2////////
+        print(fuel[1] + ": " + str(average_energy_fuel_consumption) + ", " + str(Consumption_Hours[i]))
+    summand = (average_energy_fuel_consumption/(Consumption_Hours[i]))
+    for factor in Conversion_Factors:
+      if (fuel[1] == factor[0]):
+        summand = summand*factor[1]
+      var = var.subs(symbolsOfFuels[i], summand)
+
+  var = str(var)
+
+  with open ("dataFiles/current_user_data.json", "r") as f:
+    jsonData = json.load(f)
+    jsonData["CO2 Function"] = var
+    newData  = json.dumps(jsonData, indent = 4)
+
+  with open("dataFiles/current_user_data.json", "w") as file2:
+    file2.write(newData)
