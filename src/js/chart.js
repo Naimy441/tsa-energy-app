@@ -1,6 +1,6 @@
-// document.getElementById("back").addEventListener('click', () => {
-//     window.electronAPI.loadHTML('index')
-// })
+document.getElementById("back").addEventListener('click', () => {
+    window.electronAPI.loadHTML('index')
+})
 
 // setTimeout(() => {
 //     chartList = window.electronAPI.loadUserData()['ipcData']
