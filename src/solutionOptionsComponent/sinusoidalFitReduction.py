@@ -19,18 +19,16 @@ def sinusoidalFit():
   }
 
   #print(os.listdir())
-  t = symbols("t")
+  t, maxshtime, minshtime, averagesh, maxwhtime, minwhtime, averagewh, maxactime, minactime, averageac = symbols("t macshtime minshtime averagesh maxwhtime minwhtime averagewh maxactime minactime averageac")
   
   with open("dataFiles\current_user_data.json", "r") as user_data:
     jsonUserData = json.load(user_data)
 
 
   #SPACE HEATING
-  maxshtime = jsonUserData["Consumption information"]["Space heating"][1][1]
   maxshmonth = jsonUserData["Consumption information"]["Space heating"][1][0]
   maxshmonth = DICTIONARY[maxshmonth]
 
-  minshtime = jsonUserData["Consumption information"]["Space heating"][2][1]
   minshmonth = jsonUserData["Consumption information"]["Space heating"][2][0]
   minshmonth = DICTIONARY[minshmonth]
 
@@ -41,11 +39,9 @@ def sinusoidalFit():
   
 
   #WATER HEATING
-  maxwhtime = jsonUserData["Consumption information"]["Water heating"][1][1]
   maxwhmonth = jsonUserData["Consumption information"]["Water heating"][1][0]
   maxwhmonth = DICTIONARY[maxwhmonth]
   
-  minwhtime = jsonUserData["Consumption information"]["Water heating"][2][1]
   minwhmonth = jsonUserData["Consumption information"]["Water heating"][2][0]
   minwhmonth = DICTIONARY[minwhmonth]
 
@@ -56,11 +52,9 @@ def sinusoidalFit():
 
 
   #AIR CONDITIONING
-  maxactime = jsonUserData["Consumption information"]["Air conditioning"][1][1]
   maxacmonth = jsonUserData["Consumption information"]["Air conditioning"][1][0]
   maxacmonth = DICTIONARY[maxacmonth]
   
-  minactime = jsonUserData["Consumption information"]["Air conditioning"][2][1]
   minacmonth = jsonUserData["Consumption information"]["Air conditioning"][2][0]
   minacmonth = DICTIONARY[minacmonth]
 
